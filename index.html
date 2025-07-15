@@ -8,9 +8,12 @@
 
     <link rel="stylesheet" href="dist/bundle.css" />
     <link rel="stylesheet" href="ext/icons/iconfont.css" />
+    <link rel="stylesheet" href="css/assistantSidebar.css" />
   </head>
 
   <body>
+  <div id="layout">
+    <div id="main-content">
     <div class="window-drag-area"></div>
 
     <div class="windows-caption-buttons">
@@ -145,6 +148,11 @@
           id="add-tab-button"
           class="navbar-action-button i carbon:add"
           data-label="newTabAction"
+          tabindex="-1"
+        ></button>
+        <button
+          id="assistant-button"
+          class="navbar-action-button i carbon:bot"
           tabindex="-1"
         ></button>
       </div>
@@ -346,5 +354,9 @@
     <!-- add scripts in Gruntfile.js -->
 
     <script src="dist/bundle.js"></script>
+    <script type="module" src="vite-react/dist/assets/index.js"></script>
+    </div>
+    <div id="assistant-sidebar-root" hidden></div>
+  </div>
   </body>
 </html>

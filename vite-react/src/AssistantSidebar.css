@@ -1,0 +1,9 @@
+.resize-handle {
+  background: darkred;
+  width: 4px;
+  cursor: ew-resize;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}

@@ -1,0 +1,32 @@
+#layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+#main-content {
+  flex: 1;
+}
+
+#assistant-sidebar-root {
+  background: red;
+  width: var(--assistant-sidebar-width, 300px);
+  min-width: 150px;
+  height: 100vh;
+  position: relative;
+  display: flex;
+}
+
+#assistant-sidebar-root[hidden] {
+  display: none;
+}
+
+#assistant-sidebar-root .resize-handle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: ew-resize;
+  background: darkred;
+}
