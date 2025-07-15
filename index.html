@@ -147,6 +147,13 @@
           data-label="newTabAction"
           tabindex="-1"
         ></button>
+        <button
+          id="ai-assistant-button"
+          class="navbar-action-button i carbon:chatbot"
+          data-label="openAI"
+          title="AI Assistant"
+          tabindex="-1"
+        ></button>
       </div>
     </div>
 
@@ -192,20 +199,40 @@
 
     <div id="overlay"></div>
 
-    <div id="webviews">
-      <div id="leftArrowContainer" class="arrow-indicator">
-        <i id="leftArrow" class="i carbon:chevron-left"></i>
+
+    <style>
+      /* quick inline styling; you can move to your CSS bundle */
+      #content-container { display: flex; height: calc(100vh - 40px); /* adjust 40px to your navbar height */ }
+      #webviews { flex: 1; }
+      #ai-panel {
+        width: 0;
+        overflow: hidden;
+        transition: width 0.3s ease;
+      }
+      #ai-panel.open { width: 300px; /* panel width */ }
+    </style>
+
+    <!-- Main content flex wrapper: webviews and AI panel side by side -->
+    <div id="content-container">
+      <div id="webviews">
+        <div id="leftArrowContainer" class="arrow-indicator">
+          <i id="leftArrow" class="i carbon:chevron-left"></i>
+        </div>
+        <div id="rightArrowContainer" class="arrow-indicator">
+          <i id="rightArrow" class="i carbon:chevron-right"></i>
+        </div>
+        <img id="webview-placeholder" hidden aria-hidden="true" />
+        <div id="ntp-content">
+            <img id="ntp-background" hidden>
+            <div id="ntp-background-controls">
+              <button id="ntp-image-remove"><i class="i carbon:trash-can"></i></button>
+              <button id="ntp-image-picker"><i class="i carbon:camera"></i></button>
+            </div>
+        </div>
       </div>
-      <div id="rightArrowContainer" class="arrow-indicator">
-        <i id="rightArrow" class="i carbon:chevron-right"></i>
-      </div>
-      <img id="webview-placeholder" hidden aria-hidden="true" />
-      <div id="ntp-content">
-          <img id="ntp-background" hidden>
-          <div id="ntp-background-controls">
-            <button id="ntp-image-remove"><i class="i carbon:trash-can"></i></button>
-            <button id="ntp-image-picker"><i class="i carbon:camera"></i></button>
-          </div>
+      <div id="ai-panel">
+        <!-- React will mount here -->
+        <div id="ai-extension-root"></div>
       </div>
     </div>
 
@@ -346,5 +373,7 @@
     <!-- add scripts in Gruntfile.js -->
 
     <script src="dist/bundle.js"></script>
+    <!-- load our AI extension bundle -->
+    <script type="module" src="extensions/ai-assistant/entry.js"></script>
   </body>
 </html>
