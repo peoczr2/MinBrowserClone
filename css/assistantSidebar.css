@@ -11,7 +11,7 @@
   width: var(--assistant-sidebar-width, 300px);
   min-width: 150px;
   position: fixed;
-  top: 0;
+  top: calc(36px + var(--control-space-top));
   right: 0;
   bottom: 0;
   display: none;

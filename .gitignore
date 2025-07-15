@@ -3,6 +3,8 @@
 /.idea
 .npm
 dist
+!vite-react/dist/
+!vite-react/dist/assets/index.js
 main.build.js
 .DS_Store
 package-lock.json
