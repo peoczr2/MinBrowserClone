@@ -1,0 +1,14 @@
+#assistant-panel {
+  position: absolute;
+  top: calc(36px + var(--control-space-top));
+  right: 0;
+  width: 300px;
+  bottom: 0;
+  background: red;
+  display: none;
+  z-index: 3;
+}
+
+body.assistant-panel-visible #assistant-panel {
+  display: block;
+}

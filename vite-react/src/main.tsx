@@ -1,10 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
+import AssistantPanel from './AssistantPanel'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const container = document.getElementById('assistant-panel-react-root')
+if (container) {
+  createRoot(container).render(
+    <StrictMode>
+      <AssistantPanel />
+    </StrictMode>,
+  )
+}

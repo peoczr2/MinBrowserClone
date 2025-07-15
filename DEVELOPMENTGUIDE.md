@@ -56,11 +56,11 @@ Welcome! This document explains how to contribute new features, agents, or UI co
 
 4. **Integrate Components in Min’s UI**
 
-   * In the target HTML file (e.g., `browser-ui/navbar/navbar.html`), add:
+   * In the target HTML file, add a mount point and reference the build output:
 
      ```html
-     <div id="my-react-root"></div>
-     <script src="../../vite-react/dist/assets/main.js"></script>
+     <div id="assistant-panel-react-root"></div>
+     <script src="vite-react/dist/assistant-panel.js"></script>
      ```
    * In your React entry point (`vite-react/src/main.tsx`), mount your component:
 
