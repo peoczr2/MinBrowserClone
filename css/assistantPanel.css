@@ -1,0 +1,23 @@
+#assistant-panel {
+  position: absolute;
+  top: calc(36px + var(--control-space-top));
+  right: 0;
+  width: var(--assistant-panel-width, 300px);
+  bottom: 0;
+  background: red;
+  display: none;
+  z-index: 3;
+}
+
+#assistant-panel-resizer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: ew-resize;
+}
+
+body.assistant-panel-visible #assistant-panel {
+  display: block;
+}
