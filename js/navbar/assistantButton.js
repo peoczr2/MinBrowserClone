@@ -1,7 +1,11 @@
 var button = document.getElementById('assistant-button')
-var sidebar = document.getElementById('assistant-sidebar-root')
+
+function getSidebar () {
+  return document.getElementById('assistant-sidebar-root')
+}
 
 function toggle () {
+  var sidebar = getSidebar()
   var open = document.body.classList.toggle('assistant-open')
   if (sidebar) sidebar.hidden = !open
 }
