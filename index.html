@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="dist/bundle.css" />
     <link rel="stylesheet" href="ext/icons/iconfont.css" />
+    <link rel="stylesheet" href="css/aiAssistant.css" />
   </head>
 
   <body>
@@ -147,6 +148,11 @@
           data-label="newTabAction"
           tabindex="-1"
         ></button>
+        <button
+          id="ai-assistant-button"
+          class="navbar-action-button"
+          tabindex="-1"
+        >AI</button>
       </div>
     </div>
 
@@ -208,6 +214,8 @@
           </div>
       </div>
     </div>
+
+    <div id="ai-assistant-panel"></div>
 
     <!-- findinpage ui -->
 
@@ -346,5 +354,6 @@
     <!-- add scripts in Gruntfile.js -->
 
     <script src="dist/bundle.js"></script>
+    <script src="vite-react/dist/assets/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+#ai-assistant-panel {
+  position: fixed;
+  top: 36px;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background: red;
+  z-index: 2;
+}
+
+body:not(.ai-panel-open) #ai-assistant-panel {
+  display: none;
+}
+
+#webviews {
+  transition: margin-right 0.2s;
+}
+
+body.ai-panel-open #webviews {
+  margin-right: 300px;
+}
