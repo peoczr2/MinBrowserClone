@@ -7,6 +7,17 @@
   background: red;
   display: none;
   z-index: 3;
+  border-left: 1px solid #999;
+}
+
+#assistant-panel-resizer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  bottom: 0;
+  cursor: ew-resize;
+  background: transparent;
 }
 
 body.assistant-panel-visible #assistant-panel {
