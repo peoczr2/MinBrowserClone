@@ -26,6 +26,9 @@ export default function AssistantSidebar () {
 
   useEffect(() => {
     document.body.style.setProperty('--assistant-sidebar-width', `${width}px`)
+    window.dispatchEvent(
+      new CustomEvent('assistant-sidebar-width-change', { detail: width })
+    )
   }, [width])
 
   return (
