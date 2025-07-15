@@ -30,15 +30,28 @@ function toggle () {
   if (open) {
     applyWidth(getWidth(sidebar))
     window.addEventListener('assistant-sidebar-width-change', handleResize)
+    window.addEventListener('assistant-sidebar-collapse', handleCollapse)
   } else {
     applyWidth(0)
     window.removeEventListener('assistant-sidebar-width-change', handleResize)
+    window.removeEventListener('assistant-sidebar-collapse', handleCollapse)
   }
+}
+
+function handleCollapse () {
+  var sidebar = getSidebar()
+  if (!document.body.classList.contains('assistant-open')) return
+  document.body.classList.remove('assistant-open')
+  if (sidebar) sidebar.hidden = true
+  applyWidth(0)
+  window.removeEventListener('assistant-sidebar-width-change', handleResize)
+  window.removeEventListener('assistant-sidebar-collapse', handleCollapse)
 }
 
 function initialize () {
   if (!button) return
   button.addEventListener('click', toggle)
+  window.addEventListener('assistant-sidebar-collapse', handleCollapse)
 }
 
 module.exports = { initialize }

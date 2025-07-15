@@ -1,17 +1,9 @@
-#layout {
-  height: 100vh;
-}
-
-#main-content {
-  height: 100%;
-}
-
 #assistant-sidebar-root {
   background: red;
   width: var(--assistant-sidebar-width, 300px);
-  min-width: 150px;
+  min-width: 0;
   position: fixed;
-  top: calc(36px + var(--control-space-top));
+  top: 0;
   right: 0;
   bottom: 0;
   display: none;
@@ -22,7 +14,7 @@ body.assistant-open #assistant-sidebar-root {
   display: flex;
 }
 
-body.assistant-open #main-content {
+body.assistant-open {
   margin-right: var(--assistant-sidebar-width, 300px);
 }
 
