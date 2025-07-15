@@ -3,6 +3,7 @@ var webviews = require('webviews.js')
 var assistantButton = document.getElementById('assistant-button')
 var panel = document.getElementById('assistant-panel')
 var panelWidth = 300
+var minWidth = 200
 var resizer = document.getElementById('assistant-panel-resizer')
 var isResizing = false
 var startX
@@ -46,9 +47,12 @@ function initialize () {
     window.addEventListener('mousemove', function (e) {
       if (!isResizing) return
       var newWidth = startWidth + (startX - e.clientX)
-      if (newWidth < 200) {
-        newWidth = 200
+      if (newWidth < minWidth) {
+        hide()
+        isResizing = false
+        return
       }
+
       var diff = newWidth - panelWidth
       if (diff !== 0) {
         panelWidth = newWidth
