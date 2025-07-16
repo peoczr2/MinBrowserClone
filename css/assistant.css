@@ -1,0 +1,26 @@
+#assistant-panel {
+  position: fixed;
+  top: calc(36px + var(--control-space-top));
+  bottom: 0;
+  right: 0;
+  display: none;
+  height: calc(100vh - 36px - var(--control-space-top));
+  z-index: 10;
+}
+#assistant-panel.visible {
+  display: block;
+}
+#assistant-resizer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  cursor: ew-resize;
+  height: 100%;
+  background: transparent;
+}
+
+.navbar-right-actions #assistant-button {
+  width: 36px;
+  font-size: 1.2em;
+}
