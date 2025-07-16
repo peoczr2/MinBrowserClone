@@ -1,17 +1,20 @@
 var assistantButton = document.getElementById('assistant-button')
 var panel = document.getElementById('assistant-panel')
 var resizer = document.getElementById('assistant-resizer')
-var webviews = document.getElementById('webviews')
+var webviews = require('webviews.js')
 
 var width = Number(localStorage.getItem('assistant-panel-width')) || 300
 var minWidth = 150
 var resizing = false
 
 function setWidth (w) {
+  var delta = w - width
   width = w
   localStorage.setItem('assistant-panel-width', w)
   panel.style.width = w + 'px'
-  webviews.style.marginRight = w + 'px'
+  if (panel.classList.contains('visible')) {
+    webviews.adjustMargin([0, delta, 0, 0])
+  }
   window.assistantWidth = w
   if (window.renderAssistantSidebar) {
     window.renderAssistantSidebar()
@@ -20,12 +23,17 @@ function setWidth (w) {
 
 function showPanel () {
   panel.classList.add('visible')
-  setWidth(width)
+  panel.style.width = width + 'px'
+  webviews.adjustMargin([0, width, 0, 0])
+  window.assistantWidth = width
+  if (window.renderAssistantSidebar) {
+    window.renderAssistantSidebar()
+  }
 }
 
 function hidePanel () {
   panel.classList.remove('visible')
-  webviews.style.marginRight = ''
+  webviews.adjustMargin([0, -width, 0, 0])
 }
 
 function togglePanel () {

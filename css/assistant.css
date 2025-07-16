@@ -5,7 +5,7 @@
   right: 0;
   display: none;
   height: calc(100vh - 36px - var(--control-space-top));
-  z-index: 10;
+  z-index: 11;
 }
 #assistant-panel.visible {
   display: block;
